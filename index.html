@@ -1,0 +1,186 @@
+<!doctype HTML>
+
+<html>
+
+	<head>
+		<title>Liamz</title>
+		
+		<style>
+			.header {
+				display:flex;
+				justify-content:left;
+				align-items:center;
+				gap:10px;
+				font-size:2em;
+				color: rgba(51, 197, 232);
+				border-bottom:5px solid rgba(51, 197, 232);
+			}
+			
+			.launch {
+				border: 5px solid rgba(51, 197, 232);
+				padding:10px;
+				gap:15px;
+			}
+			
+			.launch p {
+				text-align: center;
+				word-wrap: break-word;
+			
+			}
+			
+			.DialogContainer {
+				display: flex;
+				gap:15px;
+				align-items: center;
+				justify-content: center;
+			
+			}
+			
+			
+			.launchervisit {
+				border: 2px solid green;
+				padding:10px 25px;
+				background-color:mediumseagreen;
+				color:white;
+				font-size: 1em;
+			}
+			
+			.launcherclose {
+				border: 2px solid red;
+				padding: 10px 15px;
+				background-color: tomato;
+				color: white;
+				font-size: 1em;
+			}
+			
+			.subheader {
+				border-bottom: 5px solid rgba(51, 197, 232);
+				padding:5px;
+			}
+			
+			.launcherbutton {
+				padding: 5px 10px;
+				border: 2px solid rgba(0, 140, 187);
+				font-weight: bold;
+			}
+			
+			.content {
+				justify-content: center;
+				align-items: center;
+				text-align: center;
+			}
+			
+			.gap {
+				height:30vh;
+			}
+			
+			
+		</style>
+		
+	</head>
+	
+	<body>
+	
+		<div class="header">
+			<img src="images/logo.png" width=150 height=auto alt="L">
+			<h1><i>Liamz</i></h1>
+		</div>
+		<div class="subheader">
+			<button command="show-modal" commandfor="GithubDialog" class="launcherbutton">Github</button>
+			<button command="show-modal" commandfor="VoltageDialog" class="launcherbutton">Voltage</button>
+			
+			
+			<dialog id="GithubDialog" class="launch">
+				<div class="DialogContainer">
+					<h1>Github</h1>
+					<img src="https://avatars.githubusercontent.com/u/204405423?v=4" width=150 height=auto alt="Voltage Logo">
+				</div>
+				<p>My Github Profile</p>
+				<br>
+				<button command="close" commandfor="GithubDialog" class="launcherclose">Close</button>
+				<button onclick="window.open('https://github.com/L14M30')" command="close" commandfor="GithubDialog" class="launchervisit">Visit</button>
+			</dialog>
+			
+			<dialog id="VoltageDialog" class="launch">
+				<div class="DialogContainer">
+					<h1>VOLTAGE</h1>
+					<img src="https://voltage.liamz.vip/Img/voltagenew.png" width=150 height=auto alt="Voltage Logo">
+				</div>
+				<p>Games website with a great selection of games</p>
+				<br>
+				<button command="close" commandfor="VoltageDialog" class="launcherclose">Close</button>
+				<button onclick="window.open('https://voltage.liamz.vip')" command="close" commandfor="VoltageDialog" class="launchervisit">Visit</button>
+			</dialog>
+		</div>
+		
+		<div class="gap"></div>
+		
+		<div class="content">
+		
+			<div class="bar">
+				<input type="text" id="search" placeholder="Search" autofocus autocomplete="off" size="50%">
+				<input type="button" id="Search" value="Search!">
+			</div>
+		
+			<div class="options">
+				<form action="queryfe">
+					<input type="checkbox" id="ai">
+					<label for="ai">Include AI Results?</label>
+					<input type="checkbox" id="web">
+					<label for="web">Show Web Results?</label>
+				</form>
+			</div>
+		
+		</div>
+	
+	<script>
+
+const button = document.getElementById("Search");
+const form = document.getElementById("queryfe");
+const formbox = document.getElementById("formbox");
+
+function s() {
+
+    const query = document.getElementById("search").value
+
+    let URL = "https://www.google.com/search?q=" + encodeURIComponent(query);
+
+    const aiCheckbox = document.getElementById("ai");
+    const webCheckbox = document.getElementById("web");
+
+    if (!aiCheckbox.checked && !webCheckbox.checked) {
+        URL += "+-ai";
+    }
+
+    if (webCheckbox.checked) {
+        URL += "&udm=web";
+    }
+
+    window.open(URL, "_self");
+
+}
+
+button.addEventListener("click", s);
+
+search.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        s();
+    }
+});
+
+form.addEventListener("submit", (event) => {
+    event.preventDefault(); // Prevents the page from refreshing
+    s();
+});
+
+
+window.addEventListener("load", () => {
+    document.getElementById("search").focus();
+});
+
+</script>
+
+	
+	</body>
+
+</html>
