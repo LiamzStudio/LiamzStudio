@@ -90,7 +90,8 @@
 		<div class="subheader">
 			<button command="show-modal" commandfor="GithubDialog" class="launcherbutton">Github</button>
 			<button command="show-modal" commandfor="VoltageDialog" class="launcherbutton">Voltage</button>
-
+			<button command="show-modal" commandfor="TermnoteDialog" class="launcherbutton">Termnote</button>
+			
 			<dialog id="GithubDialog" class="launch">
 				<div class="DialogContainer">
 					<h1>Github</h1>
@@ -111,6 +112,17 @@
 				<br>
 				<button command="close" commandfor="VoltageDialog" class="launcherclose">Close</button>
 				<button onclick="window.open('https://voltage.liamz.vip')" command="close" commandfor="VoltageDialog" class="launchervisit">Visit</button>
+			</dialog>
+
+			<dialog id="TermnoteDialog" class="launch">
+				<div class="TermnoteContainer">
+					<h1>TERMNOTE</h1>
+					<img src="https://termnote.liamz.vip/termnote.png" width=150 height=auto alt="Voltage Logo">
+				</div>
+				<p>Notes for your terminal</p>
+				<br>
+				<button command="close" commandfor="TermnoteDialog" class="launcherclose">Close</button>
+				<button onclick="window.open('https://termnote.liamz.vip')" command="close" commandfor="TermnoteDialog" class="launchervisit">Visit</button>
 			</dialog>
 		</div>
 		
